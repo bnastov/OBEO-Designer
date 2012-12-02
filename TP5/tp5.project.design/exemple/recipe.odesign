@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="recipe">
+  <ownedViewpoints name="Recipe design" modelFileExtension="recipe">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="LR" label="Livre de Recettes" domainClass="LivreRecettes" enablePopupBars="true">
+      <layout xsi:type="description:CompositeLayout"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="N_INGREDIENT" domainClass="Ingredient">
+          <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="N_CARTE_VINS" detailDescriptions="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='LR']/@defaultLayer/@toolSections.0/@ownedTools[name='T_CARTE_VINS']" domainClass="CarteVins">
+          <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="NAV_CARTE" domainClass="CarteVins">
+          <style xsi:type="style:SquareDescription" labelExpression="Aller à la carte des vins" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="L_COMPOSE" sourceMapping="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='LR']/@defaultLayer/@containerMappings[name='K_RECETTE']" targetMapping="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='LR']/@defaultLayer/@nodeMappings[name='N_INGREDIENT']" targetFinderExpression="[_ingredient/]" sourceFinderExpression="&lt;%~composes%>" domainClass="Compose" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="[quantite/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="K_RECETTE" domainClass="Recette">
+          <subContainerMappings name="K_BOUTEILLE" semanticCandidatesExpression="&lt;%vins%>" domainClass="Bouteille">
+            <subNodeMappings name="N_COMMENTAIRE" semanticCandidatesExpression="&lt;%eAllContents()%>" domainClass="Commentaire">
+              <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;%nom%>">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[nom/]">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="T_CARTE_VINS" diagramDescription="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='D_CARTE_VINS']">
+            <initialOperation/>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="D_CARTE_VINS" label="Carte des vins" domainClass="CarteVins">
+      <defaultLayer name="Default">
+        <nodeMappings name="N_VIN" semanticCandidatesExpression="&lt;%vins%>" domainClass="Vin">
+          <style xsi:type="style:LozengeNodeDescription" labelExpression="&lt;%nom%>" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RETOUR_CARTE_RECETTES" semanticCandidatesExpression="[self/]" doubleClickDescription="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='D_CARTE_VINS']/@toolSection/@ownedTools[name='RET_']" domainClass="CarteVins">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="retour aux recettes" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+      </defaultLayer>
+      <toolSection name="T_RETOUR">
+        <ownedTools xsi:type="tool:DoubleClickDescription" name="RET_" mappings="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='D_CARTE_VINS']/@defaultLayer/@nodeMappings[name='RETOUR_CARTE_RECETTES']">
+          <element name="element"/>
+          <elementView name="elementView"/>
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.eContainer(LivreRecettes)/]">
+              <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='Recipe%20design']/@ownedRepresentations[name='LR']"/>
+            </firstModelOperations>
+          </initialOperation>
+        </ownedTools>
+      </toolSection>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

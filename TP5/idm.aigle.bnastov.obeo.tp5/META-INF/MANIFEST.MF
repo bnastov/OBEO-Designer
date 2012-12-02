@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: idm.aigle.bnastov.odeo.tp5
+Bundle-SymbolicName: idm.aigle.bnastov.obeo.tp5
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore

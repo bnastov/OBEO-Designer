@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/idm.aigle.bnastov.odeo.tp5/src"
+    modelPluginID="idm.aigle.bnastov.odeo.tp5" modelName="Tp5" importerID="org.eclipse.emf.importer.ecore"
+    copyrightFields="false">
+  <foreignModel>tp5.ecore</foreignModel>
+  <genPackages prefix="Tp5" disposableProviderFactory="true" ecorePackage="tp5.ecore#/"/>
+</genmodel:GenModel>
