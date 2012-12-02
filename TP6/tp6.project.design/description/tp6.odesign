@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="tp6">
+  <ownedViewpoints name="VIEW_PUBLICATION" modelFileExtension="tp6">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="DIAG_PUBLIC_STRUCTURE" domainClass="PublicationStructure">
+      <layout xsi:type="description:CompositeLayout"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="N_Position" semanticCandidatesExpression="[positions/]" domainClass="Position">
+          <style xsi:type="style:EllipseNodeDescription" labelExpression="&lt;%description%>" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="R_Res_Position" sourceMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Researcher']" targetMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@nodeMappings[name='N_Position']" targetFinderExpression="[res_position/]">
+          <style sourceArrow="OutputArrow" targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="R_Collaborations" sourceMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Researcher']" targetMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Paper']" targetFinderExpression="&lt;%col_paper%>" sourceFinderExpression="&lt;%~collaborations%>" domainClass="Collaboration" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="&lt;%ratio%>">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="R_Keywords" sourceMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Paper']" targetMapping="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Knowledge_Manager']/@subNodeMappings[name='N_Keyword']" targetFinderExpression="&lt;%keyword%>" sourceFinderExpression="&lt;%~keywords%>" domainClass="PaperKeywords" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="&lt;%weight%>">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="N_Knowledge_Manager" semanticCandidatesExpression="[knowledgeMan/]" domainClass="KnowledgeManager">
+          <subNodeMappings name="N_Keyword" semanticCandidatesExpression="[allKeywords/]" domainClass="Keyword">
+            <style xsi:type="style:SquareDescription" labelExpression="&lt;%key%>" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="N_Researcher" semanticCandidatesExpression="[researchers/]" domainClass="Researcher">
+          <subNodeMappings name="N_Skill" semanticCandidatesExpression="[skills/]" domainClass="Skill">
+            <style xsi:type="style:SquareDescription" labelExpression="&lt;%description%>" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="N_Paper" semanticCandidatesExpression="[papers/]" domainClass="Paper">
+          <subNodeMappings name="N_Paragraph" semanticCandidatesExpression="[paragraphs/]" domainClass="Paragraph">
+            <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:ShapeContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Nodes du canvas">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Position" nodeMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@nodeMappings[name='N_Position']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Position" referenceName="positions"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Researcher" containerMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Researcher']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Researcher" referenceName="researchers"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Paper" containerMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Paper']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Paper" referenceName="papers"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="KnowledgeManager" containerMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Knowledge_Manager']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="KnowledgeManager" referenceName="knowledgeMan"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Nodes embarques">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Keyword" nodeMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Knowledge_Manager']/@subNodeMappings[name='N_Keyword']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Keyword" referenceName="allKeywords"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Skill" nodeMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Researcher']/@subNodeMappings[name='N_Skill']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Skill" referenceName="skills"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Paragraph" nodeMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@containerMappings[name='N_Paper']/@subNodeMappings[name='N_Paragraph']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Paragraph" referenceName="paragraphs"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Liens">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Position" edgeMappings="//@ownedViewpoints[name='VIEW_PUBLICATION']/@ownedRepresentations[name='DIAG_PUBLIC_STRUCTURE']/@defaultLayer/@edgeMappings[name='R_Res_Position']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[source/]">
+                <subModelOperations xsi:type="tool:Unset" featureName="position" elementExpression="[res_position/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/idm.aigle.banstov.obeo.tp6/src"
+    modelPluginID="idm.aigle.banstov.obeo.tp6" modelName="Tp6" importerID="org.eclipse.emf.importer.ecore"
+    copyrightFields="false" language="">
+  <foreignModel>tp6.ecore</foreignModel>
+  <genPackages prefix="Tp6" disposableProviderFactory="true" ecorePackage="tp6.ecore#/">
+    <genClasses ecoreClass="tp6.ecore#//Researcher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Researcher/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Researcher/forName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Researcher/res_papers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//Researcher/skills"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Researcher/res_position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//Researcher/collaborations"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Paper">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//Paper/paragraphs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Paper/authors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Paper/citedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Paper/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//Paper/keywords"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Paragraph/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Paragraph/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Paragraph/content"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//PublicationStructure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//PublicationStructure/researchers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//PublicationStructure/papers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//PublicationStructure/positions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//PublicationStructure/knowledgeMan"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Skill">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Skill/description"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Position/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Position/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Position/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Collaboration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Collaboration/ratio"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Collaboration/col_paper"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//Keyword">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Keyword/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//Keyword/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//Keyword/kPapers"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//PaperKeywords">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//PaperKeywords/weight"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tp6.ecore#//PaperKeywords/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="tp6.ecore#//KnowledgeManager">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tp6.ecore#//KnowledgeManager/allKeywords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tp6.ecore#//KnowledgeManager/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
